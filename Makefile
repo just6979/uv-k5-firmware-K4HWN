@@ -223,6 +223,13 @@ ifeq ($(ENABLE_FEAT_F4HWN),1)
 	AUTHOR_STRING_1 ?= EGZUMER
 	VERSION_STRING_1 ?= v0.22
 
+	ifneq (, $(shell $(WHERE) git))
+		VERSION_STRING_2 ?= $(shell git describe --tags --exact-match 2>$(NULL_OUTPUT))
+		ifeq (, $(VERSION_STRING_2))
+            VERSION_STRING_2 := $(shell git describe --tags --abbrev=0)-$(shell git rev-list  `git rev-list --tags --no-walk --max-count=1`..HEAD --count)-g
+		endif
+	endif
+
 	AUTHOR_STRING_2 ?= F4HWN
 	VERSION_STRING_2 ?= v3.9
 

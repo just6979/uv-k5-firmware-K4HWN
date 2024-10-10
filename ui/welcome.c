@@ -121,7 +121,7 @@ void UI_DisplayWelcome(void)
 
         UI_DrawLineBuffer(gFrameBuffer, 0, 31, 127, 31, 1); // Be ware, status zone = 8 lines, the rest = 56 ->total 64
 
-        for (uint8_t i = 18; i < 110; i++)
+        for (uint8_t i = 0; i < 128; i++)
         {
             gFrameBuffer[4][i] ^= 0xFF;
         }
