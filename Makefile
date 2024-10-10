@@ -69,6 +69,8 @@ ENABLE_FEAT_F4HWN_GMRS_FRS_MURS	?= 0
 ENABLE_FEAT_F4HWN_CA            ?= 1
 ENABLE_FEAT_F4HWN_DEBUG         ?= 0
 
+ENABLE_FEAT_JW_GIT_VERSION      ?= 0
+
 # ---- DEBUGGING ----
 ENABLE_AM_FIX_SHOW_DATA         ?= 0
 ENABLE_AGC_SHOW_DATA            ?= 0
@@ -244,6 +246,15 @@ SIZE = arm-none-eabi-size
 ifeq ($(ENABLE_FEAT_F4HWN),1)
 	AUTHOR_STRING_1 ?= EGZUMER
 	VERSION_STRING_1 ?= v0.22
+
+	ifeq ($(ENABLE_FEAT_JW_GIT_VERSION),1)
+		ifneq (, $(shell $(WHERE) git))
+			VERSION_STRING_2 ?= $(shell git describe --tags --exact-match 2>$(NULL_OUTPUT) | cut -c1-16)
+			ifeq (, $(VERSION_STRING_2))
+				VERSION_STRING_2 := $(shell git describe --tags --abbrev=0)-$(shell git rev-list  `git rev-list --tags --no-walk --max-count=1`..HEAD --count)-g
+			endif
+		endif
+	endif
 
 	AUTHOR_STRING_2 ?= F4HWN
 	VERSION_STRING_2 ?= v4.2
