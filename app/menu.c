@@ -1885,7 +1885,11 @@ static void MENU_Key_UP_DOWN(bool bKeyPressed, bool bKeyHeld, int8_t Direction)
 
     if (!gIsInSubMenu)
     {
-        gMenuCursor = NUMBER_AddWithWraparound(gMenuCursor, -Direction, 0, gMenuListCount - 1);
+        #ifdef ENABLE_FEAT_JW_MENU_MATCH
+            gMenuCursor = NUMBER_AddWithWraparound(gMenuCursor, -Direction, 0, gMenuListCount - 1);
+        #else
+            gMenuCursor = NUMBER_AddWithWraparound(gMenuCursor, Direction, 0, gMenuListCount - 1);
+        #endif
 
         gFlagRefreshSetting = true;
 

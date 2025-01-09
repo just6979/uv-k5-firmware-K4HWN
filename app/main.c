@@ -955,10 +955,18 @@ void MAIN_ProcessKeys(KEY_Code_t Key, bool bKeyPressed, bool bKeyHeld)
             MAIN_Key_MENU(bKeyPressed, bKeyHeld);
             break;
         case KEY_UP:
-            MAIN_Key_UP_DOWN(bKeyPressed, bKeyHeld, 1);
+            #ifdef ENABLE_FEAT_JW_UPDOWN_REVERSE
+                MAIN_Key_UP_DOWN(bKeyPressed, bKeyHeld, -1);
+            #else
+                MAIN_Key_UP_DOWN(bKeyPressed, bKeyHeld, 1);
+            #endif
             break;
         case KEY_DOWN:
-            MAIN_Key_UP_DOWN(bKeyPressed, bKeyHeld, -1);
+            #ifdef ENABLE_FEAT_JW_UPDOWN_REVERSE
+                MAIN_Key_UP_DOWN(bKeyPressed, bKeyHeld, 1);
+            #else
+                MAIN_Key_UP_DOWN(bKeyPressed, bKeyHeld, -1);
+            #endif
             break;
         case KEY_EXIT:
             MAIN_Key_EXIT(bKeyPressed, bKeyHeld);
