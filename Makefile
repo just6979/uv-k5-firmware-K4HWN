@@ -4,10 +4,10 @@
 # 1 = enable
 
 # ---- STOCK QUANSHENG FEATURES ----
-ENABLE_FMRADIO                  ?= 0
+ENABLE_FMRADIO                  ?= 1
 ENABLE_UART                     ?= 1
 ENABLE_AIRCOPY                  ?= 0
-ENABLE_NOAA                     ?= 0
+ENABLE_NOAA                     ?= 1
 ENABLE_VOICE                    ?= 0
 ENABLE_VOX                      ?= 1
 ENABLE_ALARM                    ?= 0
@@ -26,8 +26,8 @@ ENABLE_WIDE_RX                  ?= 1
 ENABLE_TX_WHEN_AM               ?= 0
 ENABLE_F_CAL_MENU               ?= 0
 ENABLE_CTCSS_TAIL_PHASE_SHIFT   ?= 0
-ENABLE_BOOT_BEEPS               ?= 0
-ENABLE_SHOW_CHARGE_LEVEL        ?= 0
+ENABLE_BOOT_BEEPS               ?= 1
+ENABLE_SHOW_CHARGE_LEVEL        ?= 1
 ENABLE_REVERSE_BAT_SYMBOL       ?= 0
 ENABLE_NO_CODE_SCAN_TIMEOUT     ?= 1
 ENABLE_AM_FIX                   ?= 1
@@ -55,7 +55,7 @@ ENABLE_FEAT_F4HWN_GAME          ?= 0
 ENABLE_FEAT_F4HWN_SCREENSHOT    ?= 0
 ENABLE_FEAT_F4HWN_SPECTRUM      ?= 1
 ENABLE_FEAT_F4HWN_RX_TX_TIMER   ?= 1
-ENABLE_FEAT_F4HWN_CHARGING_C    ?= 0
+ENABLE_FEAT_F4HWN_CHARGING_C    ?= 1
 ENABLE_FEAT_F4HWN_SLEEP         ?= 1
 ENABLE_FEAT_F4HWN_RESUME_STATE  ?= 1
 ENABLE_FEAT_F4HWN_NARROWER      ?= 1
@@ -69,7 +69,7 @@ ENABLE_FEAT_F4HWN_GMRS_FRS_MURS	?= 0
 ENABLE_FEAT_F4HWN_CA            ?= 1
 ENABLE_FEAT_F4HWN_DEBUG         ?= 0
 
-ENABLE_FEAT_JW_GIT_VERSION      ?= 0
+ENABLE_FEAT_JW_GIT_VERSION      ?= 1
 ENABLE_FEAT_JW_MAIN_UPDN_REV    ?= 0
 ENABLE_FEAT_JW_MENU_UPDN_REV    ?= 0
 
